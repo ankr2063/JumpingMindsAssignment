@@ -1,5 +1,6 @@
 package com.ankit.jumpingmindsassignment.views.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ankit.jumpingmindsassignment.R
 import com.ankit.jumpingmindsassignment.databinding.ListItemBeerBinding
 import com.ankit.jumpingmindsassignment.models.ModelBeer
+import com.bumptech.glide.Glide
 
 class MainAdapter (val beers: ArrayList<ModelBeer>): RecyclerView.Adapter<MainAdapter.ViewHolder>() {
 
@@ -24,21 +26,26 @@ class MainAdapter (val beers: ArrayList<ModelBeer>): RecyclerView.Adapter<MainAd
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val beer = beers[position]
-        /*holder.binding.title.text = test.title
-        holder.binding.subject.text = test.subject
+        holder.binding.title.text = beer.name
+        holder.binding.mTvAbv.text = "ABV: "+beer.abv
 
-        val parser = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-        val formatter = SimpleDateFormat("hh:mm aa, dd MMM yyyy")
-        val output: String = formatter.format(parser.parse(test.schedule))
+        Glide.with(holder.itemView).load(beer.image_url).centerCrop()
+            .into(holder.binding.beerThumbnail)
 
-        holder.binding.date.text = output
+        holder.binding.imgInfo.setOnClickListener {
+            showDialog(it.context, beer)
+        }
 
         holder.itemView.setOnClickListener {
-            holder.itemView.context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(test.class_link)))
-        }*/
+            showDialog(it.context, beer)
+        }
     }
 
     override fun getItemCount(): Int {
         return beers.size
+    }
+
+    private fun showDialog(context: Context, beer: ModelBeer){
+
     }
 }

@@ -8,6 +8,7 @@ import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ankit.jumpingmindsassignment.R
 import com.ankit.jumpingmindsassignment.databinding.ActivityMainBinding
@@ -32,6 +33,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         dataBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+        mainViewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
         dataBinding.beersRV.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false)
         mainAdapter = MainAdapter(beers)
