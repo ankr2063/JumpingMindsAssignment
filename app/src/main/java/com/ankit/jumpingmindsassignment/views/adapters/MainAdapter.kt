@@ -29,7 +29,7 @@ class MainAdapter (val beers: ArrayList<ModelBeer>): RecyclerView.Adapter<MainAd
         holder.binding.title.text = beer.name
         holder.binding.mTvAbv.text = "ABV: "+beer.abv
 
-        Glide.with(holder.itemView).load(beer.image_url).centerCrop()
+        Glide.with(holder.itemView).load(beer.image_url)
             .into(holder.binding.beerThumbnail)
 
         holder.binding.imgInfo.setOnClickListener {

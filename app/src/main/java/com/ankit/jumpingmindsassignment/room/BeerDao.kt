@@ -8,7 +8,7 @@ interface BeerDao {
     suspend fun getAll(): List<Beer>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(Courses: List<Beer>)
+    suspend fun insertAll(beers: ArrayList<Beer>)
 
     @Delete
     suspend fun delete(beer: Beer)

@@ -1,13 +1,13 @@
 package com.ankit.jumpingmindsassignment.viewholder
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ankit.jumpingmindsassignment.models.ModelBeer
 import com.ankit.jumpingmindsassignment.network.RetrofitRestRepository
-import com.ankit.jumpingmindsassignment.room.Beer
-import com.ankit.jumpingmindsassignment.room.DatabaseHelper
+import com.ankit.jumpingmindsassignment.room.*
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
@@ -17,9 +17,8 @@ class MainViewModel: ViewModel() {
     private var beersListResponse = MutableLiveData<ArrayList<ModelBeer>>()
     val loading = MutableLiveData<Boolean>()
     val error = MutableLiveData<Boolean>()
-    lateinit var dbHelper: DatabaseHelper
 
-    fun getAllBeers() {
+    fun getAllBeers(dbHelper: DatabaseHelperImpl) {
         loading.value = true
         error.value = false
         RetrofitRestRepository.api.getBeers().enqueue(object :
@@ -41,6 +40,7 @@ class MainViewModel: ViewModel() {
             }
 
             override fun onFailure(call: Call<ArrayList<ModelBeer>>, t: Throwable) {
+                Log.e("asdf", t.localizedMessage)
                 loading.value = false
                 error.value = true
 

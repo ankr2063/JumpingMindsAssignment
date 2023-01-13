@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace 'com.ankit.jumpingmindsassignment'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.ankit.jumpingmindsassignment"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -59,4 +59,5 @@ dependencies {
     implementation "androidx.room:room-runtime:2.4.3"
     kapt "androidx.room:room-compiler:2.4.3"
     implementation "androidx.room:room-ktx:2.4.3"
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 }

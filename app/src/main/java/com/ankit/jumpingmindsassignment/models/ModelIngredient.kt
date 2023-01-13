@@ -1,7 +1,7 @@
 package com.ankit.jumpingmindsassignment.models
 
 data class ModelIngredient(
-    val malt: ModelMalt,
-    val hops: ModelHops,
+    val malt: ArrayList<ModelMalt>,
+    val hops: ArrayList<ModelHops>,
     val yeast: String
 )
