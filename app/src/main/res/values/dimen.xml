@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin">@dimen/_16sdp</dimen>
+    <dimen name="xtra_large">@dimen/_20ssp</dimen>
+    <dimen name="large">@dimen/_16ssp</dimen>
+    <dimen name="medium">@dimen/_14ssp</dimen>
+    <dimen name="small">@dimen/_12ssp</dimen>
+    <dimen name="xtra_small">@dimen/_10ssp</dimen>
+    <dimen name="top_margin">@dimen/_35sdp</dimen>
+</resources>
