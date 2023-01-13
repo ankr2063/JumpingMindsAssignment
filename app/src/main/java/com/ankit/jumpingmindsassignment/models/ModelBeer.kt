@@ -20,6 +20,6 @@ data class ModelBeer(
     val method: ModelMethod,
     val ingredients: ModelIngredient,
     val food_pairing: List<String>,
-    val browser_tips: String,
+    val brewers_tips: String,
     val contributed_by: String
 )

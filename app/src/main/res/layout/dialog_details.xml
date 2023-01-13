@@ -1,8 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:padding="@dimen/margin"
+        android:background="@drawable/round_rect_white"
+        android:layout_marginHorizontal="@dimen/_30sdp">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/close"
+            android:layout_width="@dimen/_16sdp"
+            android:layout_height="@dimen/_16sdp"
+            android:background="@drawable/circle_white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
+            <ImageView
+                android:layout_width="@dimen/_12sdp"
+                android:layout_height="@dimen/_12sdp"
+                android:src="@drawable/ic_round_close_24"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/thumbnailCardview"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:id="@+id/beerThumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/thumbnailCardview"
+            app:layout_constraintTop_toTopOf="@+id/thumbnailCardview">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:gravity="start"
+                android:layout_marginEnd="@dimen/_18sdp"
+                android:lineSpacingExtra="@dimen/_1sdp"
+                android:maxLines="2"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="@dimen/medium"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/mTvAbv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="@dimen/small"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title" />
+
+            <TextView
+                android:id="@+id/mTvFirstBrewed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="@dimen/small"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mTvAbv" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/mTvTagLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_margin"
+            android:textColor="@color/teal_200"
+            android:textSize="@dimen/small"
+            android:textStyle="italic"
+            android:text=""
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"/>
+
+        <TextView
+            android:id="@+id/mTvDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/small"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/small_margin"
+            android:gravity="start"
+            app:layout_constraintTop_toBottomOf="@+id/mTvTagLine"/>
+
+        <TextView
+            android:id="@+id/mTvFoodPairingText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/small"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/small_margin"
+            android:gravity="start"
+            android:text="Food pairing:"
+            app:layout_constraintTop_toBottomOf="@+id/mTvDescription"/>
+
+        <TextView
+            android:id="@+id/mTvFoodPairing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/small"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:gravity="start"
+            android:text=""
+            app:layout_constraintTop_toBottomOf="@+id/mTvFoodPairingText"/>
+
+        <TextView
+            android:id="@+id/mTvTips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/small"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/small_margin"
+            android:gravity="start"
+            app:layout_constraintTop_toBottomOf="@+id/mTvFoodPairing"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
